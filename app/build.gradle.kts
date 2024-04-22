@@ -50,29 +50,20 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     //retrofit
-   // implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation(libs.com.retrofit)
-    implementation("com.squareup.retrofit2:converter-scalars:2.6.2")
-    //gson convertor
-    implementation ("com.google.code.gson:gson:2.10.1")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    //live data with mvvm
-    val lifecycle_version = "2.7.0"
-
+    implementation(libs.com.scalars)
+    implementation(libs.com.gson)
+    implementation(libs.logging.interceptor)
+    implementation(libs.converter.gson)
     // ViewModel
-    implementation( "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation( libs.androidx.lifecycle.viewmodel.ktx.v270)
     // LiveData
-    implementation( "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
-    // Lifecycles only (without ViewModel or LiveData)
-    implementation( "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
-
+    implementation( libs.androidx.lifecycle.livedata.ktx.v270)
+    implementation( libs.androidx.lifecycle.runtime.ktx.v270)
     // Saved state module for ViewModel
-    implementation( "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
-
-    // alternately - if using Java8, use the following instead of lifecycle-compiler
-    implementation( "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version")
+    implementation( libs.androidx.lifecycle.viewmodel.savedstate.v270)
+    implementation( libs.androidx.lifecycle.common.java8.v270)
     //coroutine
-    implementation( "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    implementation( "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation( libs.kotlinx.android)
+    implementation( libs.kotlinx.core)
 }

@@ -6,6 +6,11 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
+lifecycleCommonJava8 = "2.7.0"
+lifecycleLivedataKtx = "2.7.0"
+lifecycleRuntimeKtx = "2.7.0"
+lifecycleViewmodelKtx = "2.7.0"
+lifecycleViewmodelSavedstate = "2.7.0"
 material = "1.11.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
@@ -14,11 +19,15 @@ converterScalers="2.6.2"
 gsonVersion="2.10.1"
 interceptorVersion="4.9.1"
 gsonConvertorVersion="2.9.0"
-lifeCycleVersion="2.9.0"
 coroutineVersion="1.7.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-lifecycle-common-java8-v270 = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "lifecycleCommonJava8" }
+androidx-lifecycle-livedata-ktx-v270 = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+androidx-lifecycle-runtime-ktx-v270 = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-viewmodel-ktx-v270 = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-viewmodel-savedstate-v270 = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "lifecycleViewmodelSavedstate" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -28,7 +37,12 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 com-retrofit = {group = "com.squareup.retrofit2",name="retrofit",version.ref = "retrofitVersion"}
-
+com-scalars = {group = "com.squareup.retrofit2" , name="converter-scalars",version.ref ="converterScalers"}
+com-gson= { group="com.google.code.gson",name="gson",version.ref="gsonVersion"}
+logging-interceptor={group="com.squareup.okhttp3",name="logging-interceptor",version.ref="interceptorVersion"}
+converter-gson={group="com.squareup.retrofit2",name="converter-gson",version.ref="gsonConvertorVersion"}
+kotlinx-android={group="org.jetbrains.kotlinx",name="kotlinx-coroutines-android",version.ref="coroutineVersion"}
+kotlinx-core={group="org.jetbrains.kotlinx",name="kotlinx-coroutines-core",version.ref="coroutineVersion"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
