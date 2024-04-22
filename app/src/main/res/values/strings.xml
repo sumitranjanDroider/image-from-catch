@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ImageCachingProject</string>
+    <string name="image_description">Showing image from catch memory and disc</string>
+</resources>
