@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.srcorp.imagecachingproject.R
 import com.srcorp.imagecachingproject.adapters.MainImageListAdapter
 import com.srcorp.imagecachingproject.client.ApiService
+import com.srcorp.imagecachingproject.client.Constant.discCatch
+import com.srcorp.imagecachingproject.client.Constant.memoryCatch
 import com.srcorp.imagecachingproject.client.MainRepository
 import com.srcorp.imagecachingproject.client.localLog
 import com.srcorp.imagecachingproject.dataModel.BitMapData
@@ -38,23 +40,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.apply {
+            viewmodels=viewModels
+            lifecycleOwner=this@MainActivity
             //Recycler related
             mainRecycler.layoutManager=GridLayoutManager(this@MainActivity,3)
             imageAdapter=MainImageListAdapter()
             mainRecycler.adapter=imageAdapter
-            viewModels.loading.observe(this@MainActivity){
-
-            }
             viewModels.errorMessage.observe(this@MainActivity){
 
             }
-            viewModels.cache.observe(this@MainActivity){
-              val list= mutableListOf<BitMapData>()
-              for (i in it){
-                   list.add(BitMapData(i.value,i.key))
-              }
-                imageAdapter.updateMainImageListAdapter(list)
-                localLog(list.toString())
+            viewModels.imageList.observe(this@MainActivity){
+                discCatch.clearDiskCache(this@MainActivity)
+                memoryCatch.clearMemoryCatch()
+                imageAdapter.updateMainImageListAdapter(it)
+                localLog("${it}")
             }
 
 

@@ -19,8 +19,8 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class MainViewModels constructor(private val mainRepository: MainRepository) :ViewModel(){
-     var cache=MutableLiveData<LinkedHashMap<String,String>>()
-  //   var imageList= MutableLiveData<List<BitMapData>>()
+
+     var imageList= MutableLiveData<List<BitMapData>>()
      var errorMessage= MutableLiveData<String>()
     var errorCode= MutableLiveData<Int>()
     private var job: Job?=null
@@ -62,12 +62,12 @@ class MainViewModels constructor(private val mainRepository: MainRepository) :Vi
     }
 
     private fun filterImageResource(res: List<ImageData>?) {
-        val list=LinkedHashMap<String,String>()
+        val list= mutableListOf<BitMapData>()
         for (i in res!!.indices){
             val data=res[i].thumbnail!!
             val url="${data.domain}/${data.basePath}/0/${data.key}"
-            list["$i${data.key}"]=url
+            list.add(BitMapData(url,"${i}_${data.key}"))
         }
-        cache.postValue(list)
+       imageList.postValue(list)
     }
  }

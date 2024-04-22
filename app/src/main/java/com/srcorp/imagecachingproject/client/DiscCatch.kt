@@ -10,7 +10,7 @@ import java.io.FileOutputStream
 
 class DiscCatch{
     //Disc Caching
-    suspend fun getBitmapFromDiskCache(context: Context, key: String): Bitmap? = withContext(Dispatchers.Default) {
+    suspend fun getBitmapFromDiskCache(context: Context, key: String): Bitmap? = withContext(Dispatchers.IO) {
         val cacheDir = context.cacheDir
         val file = File(cacheDir, key)
         if (file.exists()) {
@@ -23,7 +23,7 @@ class DiscCatch{
         val cacheDir = context.cacheDir
         val file = File(cacheDir, key)
         FileOutputStream(file).use { out ->
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
             out.flush()
         }
     }
